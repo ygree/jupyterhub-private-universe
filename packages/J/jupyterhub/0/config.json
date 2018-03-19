@@ -31,11 +31,6 @@
           "default":true,
           "description":"Force docker to re-pull the image.",
           "type":"boolean"
-        },
-        "jupyter-notebook-image":{
-          "default":"jupyterhub/singleuser:0.8",
-          "description":"Jupyter single user notebook docker image. It should support JupyterHub.",
-          "type":"string"
         }
       },
       "required": [
@@ -44,6 +39,17 @@
         "mem",
         "marathon-url"
       ]
+    },
+    "notebook": {
+      "description": "Single User notebook properties",
+      "type": "object",
+      "properties": {
+        "jupyter-notebook-image":{
+          "default":"jupyterhub/singleuser:0.8",
+          "description":"Jupyter single user notebook docker image. It should support JupyterHub.",
+          "type":"string"
+        }
+      }
     }
   },
   "required": [

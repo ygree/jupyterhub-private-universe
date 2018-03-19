@@ -1,7 +1,7 @@
 {
   "images": {
-    "icon-small": "https://s3.amazonaws.com/ygribkov/jupyterhub-repo/jupyterhub-logo-large.png",
-    "icon-medium": "https://s3.amazonaws.com/ygribkov/jupyterhub-repo/jupyterhub-logo-large.png",
+    "icon-small": "https://s3.amazonaws.com/ygribkov/jupyterhub-repo/jupyterhub-logo-small.png",
+    "icon-medium": "https://s3.amazonaws.com/ygribkov/jupyterhub-repo/jupyterhub-logo-medium.png",
     "icon-large": "https://s3.amazonaws.com/ygribkov/jupyterhub-repo/jupyterhub-logo-large.png"
   },
   "assets": {

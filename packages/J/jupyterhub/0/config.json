@@ -88,10 +88,27 @@
           "type":"string"
         }
       }
+    },
+    "NFS": {
+      "description": "NFS (Network File Storage) settings.",
+      "type": "object",
+      "properties": {
+        "enabled" : {
+          "default":false,
+          "description":"NFS enabled.",
+          "type":"boolean"
+        },
+        "host-path" : {
+          "default":"",
+          "description":"NFS folder available on all the hosts. This folder will be mounted in Read-Only mode to `/notebooks`. When single notebook starts it will create user folder `/notebooks/$USERNAME`, mount it in Read-Write mode and make it default folder for the user.",
+          "type":"string"
+        }
+      }
     }
   },
   "required": [
-    "jupyterhub"
+    "jupyterhub",
+    "notebook"
   ]
 }
 

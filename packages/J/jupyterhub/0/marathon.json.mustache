@@ -39,6 +39,9 @@
     "LDAP_USER_SEARCH_BASE": "{{lLDAP.user-search-base}}",
     "LDAP_USER_ATTRIBUTE: "{{LDAP.user-attribute}}",
     {{/LDAP.enabled}}
+    {{#NFS.enabled}}
+    "NFS_HOST_PATH": "{{NFS.host-path}}"
+    {{/NFS.enabled}}
     "MARATHON_HOST": "{{jupyterhub.marathon-url}}",
     "APP_IMAGE": "{{notebook.jupyter-notebook-image}}",
     "SPAWNER_MEM_MB": "{{notebook.mem}}",

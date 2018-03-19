@@ -34,7 +34,7 @@
     }
   },
   "env": {
-    "APP_IMAGE": "jupyterhub/singleuser:0.8",
+    "APP_IMAGE": {{jupyterhub.jupyter-notebook-image}},
     "MARATHON_HOST": {{jupyterhub.marathon-url}}
   },
   "healthChecks": [

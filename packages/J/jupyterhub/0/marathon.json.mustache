@@ -27,15 +27,15 @@
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "occo6er/jupyterhub-pam",
-      "forcePullImage": true,
+      "image": "{{resource.assets.container.docker.jupyterhub}}",
+      "forcePullImage": {{jupyterhub.force-pull-image}},
       "privileged": false,
       "parameters": []
     }
   },
   "env": {
     "APP_IMAGE": "jupyterhub/singleuser:0.8",
-    "MARATHON_HOST": "http://leader.mesos:8080"
+    "MARATHON_HOST": {{jupyterhub.marathon-url}}
   },
   "healthChecks": [
     {

@@ -21,12 +21,23 @@
             "type": "number",
             "default": 512.0,
             "minimum": 512.0
+        },
+        "marathon-url": {
+          "default":"http://leader.mesos:8080",
+          "description":"Marathon leading master URL.",
+          "type":"string"
+        },
+        "force-pull-image":{
+          "default":true,
+          "description":"Force docker to re-pull the image.",
+          "type":"boolean"
         }
       },
       "required": [
         "framework-name",
         "cpus",
-        "mem"
+        "mem",
+        "marathon-url"
       ]
     }
   },

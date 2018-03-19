@@ -1,0 +1,15 @@
+
+CURRENT_FOLDER=$(pwd)
+
+UNIVERSE_FOLDER=../universe
+
+echo $CURRENT_FOLDER
+echo $UNIVERSE_FOLDER
+
+cd $UNIVERSE_FOLDER
+
+# build marathon package
+
+scripts/gen_universe.py --repository $CURRENT_FOLDER/packages/ --out-dir $CURRENT_FOLDER/repo
+
+cd $CURRENT_FOLDER

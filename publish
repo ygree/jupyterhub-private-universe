@@ -1,0 +1,5 @@
+
+
+# upload built files to S3 bucket
+
+aws s3 cp --content-type "$(cat repo/repo-up-to-1.11.content_type)" repo/repo-up-to-1.11.json s3://ygribkov/jupyterhub-repo/ --acl public-read

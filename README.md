@@ -11,20 +11,15 @@ Build
 
 > Note: you will need pip, Docker, jq and other tools to build it. See universe github for more details.
 
-1. Build stub:
-```
-scripts/gen_universe.py --repository ../jupyterhub-private-universe/packages/ --out-dir ../jupyterhub-private-universe/repo
-```
-It will generate private repo files in `../jupyterhub-private-universe/repo`
+1. Build stub package: see `build` script
 
-2. Upload to your S3 bucket with predefined Content-Type:
-```
-aws s3 cp --content-type "$(cat ../jupyterhub-private-universe/repo/repo-up-to-1.11.content_type)" ../jupyterhub-private-universe/repo/repo-up-to-1.11.json s3://ygribkov/jupyterhub-repo/ --acl public-read
-```
+2. Upload logos: see `upload-logos` script
+
+3. Publish stub to S3: see `publish` script
 
 3. Add to DC/OS or access it by: (https://s3.amazonaws.com/ygribkov/jupyterhub-repo/repo-up-to-1.11.json)
 
-Add repo to DC/OS: `dcos package repo add --index=0 "Private Universe" https://host/and/path/to/repo-up-to-x.json`
+Add repo to DC/OS: `dcos package repo add --index=0 "Private Universe" https://s3.amazonaws.com/ygribkov/jupyterhub-repo/repo-up-to-1.11.json`
 
 Your packages ready to be installed.
 

@@ -1,0 +1,8 @@
+
+# upload logos
+
+aws s3 cp --content-type "image/png" logos/jupyterhub-logo-large.png s3://ygribkov/jupyterhub-repo/ --acl public-read
+
+aws s3 cp --content-type "image/png"  logos/jupyterhub-logo-medium.png s3://ygribkov/jupyterhub-repo/ --acl public-read
+
+aws s3 cp --content-type "image/png"  logos/jupyterhub-logo-small.png s3://ygribkov/jupyterhub-repo/ --acl public-read

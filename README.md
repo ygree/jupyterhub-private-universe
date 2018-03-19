@@ -2,7 +2,7 @@
 JupyterHub private unverse
 ==========================
 
-This private-universe contains only jupyterhub custom package.
+This jupyterhub-private-universe contains only jupyterhub custom package.
 
 Build
 -----
@@ -13,13 +13,13 @@ Build
 
 1. Build stub:
 ```
-scripts/gen_universe.py --repository ../private-universe/packages/ --out-dir ../private-universe/repo
+scripts/gen_universe.py --repository ../jupyterhub-private-universe/packages/ --out-dir ../jupyterhub-private-universe/repo
 ```
-It will generate private repo files in `../private-universe/repo`
+It will generate private repo files in `../jupyterhub-private-universe/repo`
 
 2. Upload to your S3 bucket with predefined Content-Type:
 ```
-aws s3 cp --content-type "$(cat ../private-universe/repo/repo-up-to-1.11.content_type)" ../private-universe/repo/repo-up-to-1.11.json s3://ygribkov/jupyterhub-repo/ --acl public-read
+aws s3 cp --content-type "$(cat ../jupyterhub-private-universe/repo/repo-up-to-1.11.content_type)" ../jupyterhub-private-universe/repo/repo-up-to-1.11.json s3://ygribkov/jupyterhub-repo/ --acl public-read
 ```
 
 3. Add to DC/OS or access it by: (https://s3.amazonaws.com/ygribkov/jupyterhub-repo/repo-up-to-1.11.json)

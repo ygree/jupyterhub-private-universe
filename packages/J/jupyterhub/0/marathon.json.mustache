@@ -1,0 +1,70 @@
+{
+  "id": "/{{jupyterhub.framework-name}}",
+  "cpus": {{jupyterhub.cpus}},
+  "gpus": 0,
+  "mem": {{jupyterhub.mem}},
+  "disk": 1024,
+  "instances": 1,
+  "backoffFactor": 1.15,
+  "backoffSeconds": 1,
+  "container": {
+    "portMappings": [
+      {
+        "containerPort": 8000,
+        "hostPort": 14545,
+        "protocol": "tcp",
+        "servicePort": 10179,
+        "name": "jupyterhub-web"
+      },
+      {
+        "containerPort": 8081,
+        "hostPort": 0,
+        "protocol": "tcp",
+        "servicePort": 8081,
+        "name": "jupyterhub-api"
+      }
+    ],
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "occo6er/jupyterhub-pam",
+      "forcePullImage": true,
+      "privileged": false,
+      "parameters": []
+    }
+  },
+  "env": {
+    "APP_IMAGE": "jupyterhub/singleuser:0.8",
+    "MARATHON_HOST": "http://leader.mesos:8080"
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "timeoutSeconds": 20,
+      "delaySeconds": 15,
+      "protocol": "MESOS_HTTPS"
+    }
+  ],
+  "maxLaunchDelaySeconds": 3600,
+  "networks": [
+    {
+      "mode": "container/bridge"
+    }
+  ],
+  "requirePorts": false,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 1,
+    "minimumHealthCapacity": 1
+  },
+  "killSelection": "YOUNGEST_FIRST",
+  "unreachableStrategy": {
+    "inactiveAfterSeconds": 300,
+    "expungeAfterSeconds": 600
+  },
+  "fetch": [],
+  "constraints": []
+}
+

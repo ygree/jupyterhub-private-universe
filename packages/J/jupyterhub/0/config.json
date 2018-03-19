@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "jupyterhub": {
+      "description": "JupyterHub framework configuration properties",
+      "type": "object",
+      "properties": {
+        "framework-name": {
+          "description": "The framework name to register with Mesos.",
+          "type": "string",
+          "default": "jupyterhub/marathon-spawner"
+        },
+        "cpus": {
+            "description": "CPU shares to allocate to JupyterHub.",
+            "type": "number",
+            "default": 0.1,
+            "minimum": 0.1
+        },
+        "mem": {
+            "description": "Memory to allocate to JupyterHub.",
+            "type": "number",
+            "default": 512.0,
+            "minimum": 512.0
+        }
+      },
+      "required": [
+        "framework-name",
+        "cpus",
+        "mem"
+      ]
+    }
+  },
+  "required": [
+    "jupyterhub"
+  ]
+}
+

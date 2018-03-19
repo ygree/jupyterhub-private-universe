@@ -48,6 +48,44 @@
           "default":"jupyterhub/singleuser:0.8",
           "description":"Jupyter single user notebook docker image. It should support JupyterHub.",
           "type":"string"
+        },
+        "cpus": {
+            "description": "CPU shares to allocate to Jupyter Single User Notebook.",
+            "type": "number",
+            "default": 0.1,
+            "minimum": 0.1
+        },
+        "mem": {
+            "description": "Memory to allocate to Jupyter Single User Notebook.",
+            "type": "number",
+            "default": 512.0,
+            "minimum": 512.0
+        }
+      }
+    },
+    "LDAP": {
+      "description": "LDAP configuration for notebook user authentication",
+      "type": "object",
+      "properties": {
+        "enabled" : {
+          "default":false,
+          "description":"LDAP authentication enabled. If not it will use PAMAuthenticator.",
+          "type":"boolean"
+        },
+        "server-address" : {
+          "default":"",
+          "description":"LDAP server address.",
+          "type":"string"
+        },
+        "user-search-base" : {
+          "default":"",
+          "description":"LDAP user search base.",
+          "type":"string"
+        },
+        "user-attribute" : {
+          "default":"sAMAccountNAme",
+          "description":"LDAP user attribute.",
+          "type":"string"
         }
       }
     }
